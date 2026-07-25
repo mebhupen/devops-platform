@@ -1,0 +1,30 @@
+groups:
+- name: enterprise-devops
+  rules:
+
+  - alert: BackendDown
+    expr: up{namespace="enterprise-devops"} == 0
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: Backend is down
+      description: Backend has been unreachable for more than 1 minute.
+
+  - alert: HighCPUUsage
+    expr: sum(rate(container_cpu_usage_seconds_total{namespace="enterprise-devops"}[5m])) > 0.8
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: High CPU Usage
+      description: CPU usage is above 80%.
+
+  - alert: HighMemoryUsage
+    expr: sum(container_memory_usage_bytes{namespace="enterprise-devops"}) > 500000000
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: High Memory Usage
+      description: Memory usage is above 500 MB.

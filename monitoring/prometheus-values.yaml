@@ -1,0 +1,13 @@
+serverFiles:
+  alerting_rules.yml:
+    groups:
+      - name: enterprise-devops
+        rules:
+          - alert: BackendDown
+            expr: up{namespace="enterprise-devops"} == 0
+            for: 1m
+            labels:
+              severity: critical
+            annotations:
+              summary: Backend is down
+              description: Backend has been unreachable for more than 1 minute.

@@ -1,0 +1,24 @@
+const express = require('express');
+const authRoutes = require('./authRoutes');
+const projectRoutes = require('./projectRoutes');
+const healthRoutes = require('./healthRoutes');
+const notificationRoutes = require('./notificationRoutes');
+const deploymentRoutes = require('./deploymentRoutes');
+const usersRoutes = require('./usersRoutes');
+const rolesRoutes = require('./rolesRoutes');
+const queueRoutes = require('./queueRoutes');
+const jobRoutes = require('./jobRoutes');
+const pipelineRoutes = require('./pipelineRoutes');
+
+const router = express.Router();
+router.use('/auth', authRoutes);
+router.use('/projects', projectRoutes);
+router.use('/health', healthRoutes);
+router.use('/notifications', notificationRoutes);
+router.use('/deployments', deploymentRoutes);
+router.use('/users', usersRoutes);
+router.use('/roles', rolesRoutes);
+router.use('/queues', queueRoutes);
+router.use('/jobs', jobRoutes);
+router.use('/pipelines', pipelineRoutes);
+module.exports = router;

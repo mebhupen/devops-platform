@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Environment - never commit real secrets. .env.example stays tracked.
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Build output
+dist/
+build/

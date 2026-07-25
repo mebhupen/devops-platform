@@ -1,0 +1,268 @@
+.
+├── LICENSE
+├── README.md
+├── app
+│   ├── backend
+│   │   ├── CORRECTION_REPORT.md
+│   │   ├── Dockerfile
+│   │   ├── FINAL_REPORT.md
+│   │   ├── README.md
+│   │   ├── app.js
+│   │   ├── database
+│   │   │   ├── migrations
+│   │   │   │   ├── 20240101000001_create_users.js
+│   │   │   │   ├── 20240101000002_create_refresh_tokens.js
+│   │   │   │   ├── 20240101000003_create_projects.js
+│   │   │   │   ├── 20240101000004_create_deployments.js
+│   │   │   │   ├── 20240101000005_create_notifications.js
+│   │   │   │   ├── 20240101000006_fix_fk_actions_and_indexes.js
+│   │   │   │   ├── 20240101000007_add_refresh_token_family.js
+│   │   │   │   └── 20260725172101_create_pipelines_table.js
+│   │   │   └── seeds
+│   │   │       └── 01_admin.js
+│   │   ├── docker-compose.yml
+│   │   ├── jest.config.js
+│   │   ├── k8s
+│   │   │   ├── configmap.yaml
+│   │   │   ├── deployment.yaml
+│   │   │   ├── hpa.yaml
+│   │   │   ├── ingress.yaml
+│   │   │   ├── namespace.yaml
+│   │   │   ├── networkPolicy.yaml
+│   │   │   ├── podDisruptionBudget.yaml
+│   │   │   ├── secret.yaml
+│   │   │   └── service.yaml
+│   │   ├── knexfile.js
+│   │   ├── logs
+│   │   │   ├── combined-2026-07-25.log
+│   │   │   ├── error-2026-07-25.log
+│   │   │   └── http-2026-07-25.log
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── prometheus.yml
+│   │   ├── scripts
+│   │   │   └── validate.sh
+│   │   ├── server.js
+│   │   ├── src
+│   │   │   ├── config
+│   │   │   │   ├── database.js
+│   │   │   │   ├── env.js
+│   │   │   │   ├── logger.js
+│   │   │   │   ├── redis.js
+│   │   │   │   └── swagger.js
+│   │   │   ├── controllers
+│   │   │   │   ├── authController.js
+│   │   │   │   ├── deploymentController.js
+│   │   │   │   ├── healthController.js
+│   │   │   │   ├── jobController.js
+│   │   │   │   ├── notificationController.js
+│   │   │   │   ├── pipelineController.js
+│   │   │   │   ├── projectController.js
+│   │   │   │   ├── queueController.js
+│   │   │   │   ├── rolesController.js
+│   │   │   │   └── usersController.js
+│   │   │   ├── jobs
+│   │   │   │   ├── index.js
+│   │   │   │   ├── queues.js
+│   │   │   │   └── workers.js
+│   │   │   ├── middleware
+│   │   │   │   ├── auth.js
+│   │   │   │   ├── cache.js
+│   │   │   │   ├── errorHandler.js
+│   │   │   │   ├── metrics.js
+│   │   │   │   ├── rateLimiter.js
+│   │   │   │   ├── rbac.js
+│   │   │   │   ├── requestId.js
+│   │   │   │   └── validate.js
+│   │   │   ├── realtime
+│   │   │   │   └── socket.js
+│   │   │   ├── repositories
+│   │   │   │   ├── baseRepository.js
+│   │   │   │   ├── deploymentRepository.js
+│   │   │   │   ├── notificationRepository.js
+│   │   │   │   ├── projectRepository.js
+│   │   │   │   ├── refreshTokenRepository.js
+│   │   │   │   └── userRepository.js
+│   │   │   ├── routes
+│   │   │   │   ├── authRoutes.js
+│   │   │   │   ├── deploymentRoutes.js
+│   │   │   │   ├── healthRoutes.js
+│   │   │   │   ├── index.js
+│   │   │   │   ├── jobRoutes.js
+│   │   │   │   ├── notificationRoutes.js
+│   │   │   │   ├── pipelineRoutes.js
+│   │   │   │   ├── projectRoutes.js
+│   │   │   │   ├── queueRoutes.js
+│   │   │   │   ├── rolesRoutes.js
+│   │   │   │   └── usersRoutes.js
+│   │   │   ├── schedulers
+│   │   │   │   └── index.js
+│   │   │   ├── services
+│   │   │   │   ├── authService.js
+│   │   │   │   ├── cacheService.js
+│   │   │   │   ├── deploymentService.js
+│   │   │   │   ├── emailService.js
+│   │   │   │   ├── notificationService.js
+│   │   │   │   └── projectService.js
+│   │   │   ├── utils
+│   │   │   │   ├── ApiResponse.js
+│   │   │   │   ├── AppError.js
+│   │   │   │   ├── pagination.js
+│   │   │   │   ├── password.js
+│   │   │   │   ├── sanitizeUser.js
+│   │   │   │   └── token.js
+│   │   │   └── validations
+│   │   │       ├── authValidation.js
+│   │   │       ├── deploymentValidation.js
+│   │   │       ├── notificationValidation.js
+│   │   │       └── projectValidation.js
+│   │   └── tests
+│   │       ├── helpers
+│   │       │   ├── factories.js
+│   │       │   └── testEnv.js
+│   │       ├── integration
+│   │       │   ├── auth.test.js
+│   │       │   ├── deployments.test.js
+│   │       │   ├── health.test.js
+│   │       │   ├── notifications.test.js
+│   │       │   └── projects.test.js
+│   │       └── unit
+│   │           ├── middleware
+│   │           │   └── rbac.test.js
+│   │           └── utils
+│   │               ├── pagination.test.js
+│   │               ├── sanitizeUser.test.js
+│   │               └── token.test.js
+│   └── frontend
+│       ├── Dockerfile
+│       ├── README.md
+│       ├── index.html
+│       ├── package-lock.json
+│       ├── package.json
+│       ├── public
+│       │   ├── favicon.svg
+│       │   └── icons.svg
+│       ├── src
+│       │   ├── App.jsx
+│       │   ├── api
+│       │   │   ├── authApi.js
+│       │   │   ├── client.js
+│       │   │   ├── deploymentsApi.js
+│       │   │   ├── healthApi.js
+│       │   │   ├── jobsApi.js
+│       │   │   ├── notificationsApi.js
+│       │   │   ├── pipelinesApi.js
+│       │   │   ├── projectsApi.js
+│       │   │   ├── queuesApi.js
+│       │   │   ├── rolesApi.js
+│       │   │   └── usersApi.js
+│       │   ├── assets
+│       │   │   ├── hero.png
+│       │   │   └── vite.svg
+│       │   ├── components
+│       │   │   ├── cards
+│       │   │   │   ├── RecentAlerts.jsx
+│       │   │   │   └── StatusCard.jsx
+│       │   │   ├── charts
+│       │   │   │   └── DashboardChart.jsx
+│       │   │   ├── common
+│       │   │   │   ├── ComingSoon.jsx
+│       │   │   │   └── PageHeader.jsx
+│       │   │   ├── dashboard
+│       │   │   │   ├── ActivityTimeline.jsx
+│       │   │   │   ├── ClusterStatus.jsx
+│       │   │   │   ├── DashboardChart.jsx
+│       │   │   │   ├── RecentAlerts.jsx
+│       │   │   │   ├── RecentDeployments.jsx
+│       │   │   │   ├── RecentTasks.jsx
+│       │   │   │   ├── StatCard.jsx
+│       │   │   │   └── SystemHealth.jsx
+│       │   │   ├── layout
+│       │   │   │   ├── Layout.jsx
+│       │   │   │   ├── Navbar.jsx
+│       │   │   │   └── Sidebar.jsx
+│       │   │   └── tables
+│       │   │       └── RecentDeployments.jsx
+│       │   ├── constants
+│       │   │   └── dashboardConstants.js
+│       │   ├── context
+│       │   │   ├── AuthContext.jsx
+│       │   │   ├── DashboardContext.js
+│       │   │   └── ThemeModeContext.jsx
+│       │   ├── hooks
+│       │   │   ├── useDashboard.js
+│       │   │   └── useDocker.js
+│       │   ├── main.jsx
+│       │   ├── pages
+│       │   │   ├── Dashboard
+│       │   │   │   └── Dashboard.jsx
+│       │   │   ├── Deployments
+│       │   │   │   └── Deployments.jsx
+│       │   │   ├── Docker
+│       │   │   │   ├── ContainersTable.jsx
+│       │   │   │   ├── Docker.jsx
+│       │   │   │   ├── DockerEvents.jsx
+│       │   │   │   ├── DockerStats.jsx
+│       │   │   │   └── QuickActions.jsx
+│       │   │   ├── Jobs
+│       │   │   │   └── Jobs.jsx
+│       │   │   ├── Kubernetes
+│       │   │   │   └── Kubernetes.jsx
+│       │   │   ├── Login
+│       │   │   │   └── Login.jsx
+│       │   │   ├── Monitoring
+│       │   │   │   └── Monitoring.jsx
+│       │   │   ├── NotFound
+│       │   │   │   └── NotFound.jsx
+│       │   │   ├── Notifications
+│       │   │   │   └── Notifications.jsx
+│       │   │   ├── Pipelines
+│       │   │   │   └── Pipelines.jsx
+│       │   │   ├── Profile
+│       │   │   │   └── Profile.jsx
+│       │   │   ├── Projects
+│       │   │   │   └── Projects.jsx
+│       │   │   ├── Queues
+│       │   │   │   └── Queues.jsx
+│       │   │   ├── Roles
+│       │   │   │   └── Roles.jsx
+│       │   │   ├── Settings
+│       │   │   │   └── Settings.jsx
+│       │   │   ├── Tasks
+│       │   │   │   └── Tasks.jsx
+│       │   │   └── Users
+│       │   │       └── Users.jsx
+│       │   ├── routes
+│       │   │   ├── AppRoutes.jsx
+│       │   │   └── ProtectedRoute.jsx
+│       │   ├── services
+│       │   │   ├── authService.js
+│       │   │   ├── dashboardService.js
+│       │   │   └── dockerService.js
+│       │   ├── theme
+│       │   │   └── theme.js
+│       │   └── utils
+│       │       └── token.js
+│       └── vite.config.js
+├── docker-compose.yml
+├── enterprise-devops-platform.zip
+├── k8s
+│   ├── backend-configmap.yaml
+│   ├── backend-deployment.yaml
+│   ├── backend-hpa.yaml
+│   ├── backend-ingress.yaml
+│   ├── backend-secret.yaml
+│   ├── backend-service.yaml
+│   ├── namespace.yaml
+│   ├── postgres-deployment.yaml
+│   ├── postgres-pvc.yaml
+│   ├── postgres-secret.yaml
+│   └── postgres-service.yaml
+├── monitoring
+│   ├── alert-rules.yaml
+│   └── prometheus-values.yaml
+├── nginx
+│   └── nginx.conf
+└── project-tree.txt
+
+67 directories, 199 files
