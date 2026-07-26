@@ -625,61 +625,58 @@ npm run test:coverage
 
 # 📸 Screenshots
 
-> Add screenshots after deployment.
-
 ## Login
 
-```
-docs/images/login.png
-```
+
+![Login](docs/images/login.png)
 
 ---
 
 ## Dashboard
 
-```
-docs/images/dashboard.png
-```
+
+![Dashboard](docs/images/dashboard.png)
+
 
 ---
 
 ## Projects
 
-```
-docs/images/projects.png
-```
+
+![Projects](docs/images/projects.png)
+
 
 ---
 
 ## Deployments
 
-```
-docs/images/deployments.png
-```
+
+![Deployments](docs/images/deployments.png)
+
 
 ---
 
 ## Monitoring
 
-```
-docs/images/monitoring.png
-```
+
+![Monitoring](docs/images/monitoring.png)
+
 
 ---
 
 ## Docker Dashboard
 
-```
-docs/images/docker.png
-```
+
+![Docker Dashboard](docs/images/docker.png)
+
 
 ---
 
 ## Kubernetes Dashboard
 
-```
-docs/images/kubernetes.png
-```
+
+![Kubernetes Dashboard](docs/images/kubernetes.png)
+
 
 ---
 
