@@ -308,9 +308,9 @@ Install the following software:
 # 📥 Clone Repository
 
 ```bash
-git clone https://github.com/<your-username>/enterprise-devops-platform.git
+git clone https://github.com/mebhupen/devops-platform.git
 
-cd enterprise-devops-platform
+cd devops-platform
 ```
 
 ---
